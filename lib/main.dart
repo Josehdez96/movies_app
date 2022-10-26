@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/screens.dart';
 
+// https://via.placeholder.com/700x350
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,6 +16,10 @@ class MyApp extends StatelessWidget {
         'home': (_) => HomeScreen(),
         'details': (_) => DetailsScreen(),
       },
+      theme: ThemeData.dark().copyWith(
+        canvasColor: Colors.black54,
+        scaffoldBackgroundColor: Colors.black54,
+      ),
     );
   }
 }
