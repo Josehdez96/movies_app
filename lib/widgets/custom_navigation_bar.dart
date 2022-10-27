@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:movies_app/providers/navigation_provider.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final navigationProvider = Provider.of<NavigationProvider>(context);
+    final navigationProvider = Provider.of<NavigationProvider>(context);
 
     return BottomNavigationBar(
       onTap: (index) {
-        // navigationProvider.selectedMenuOption = index;
+        navigationProvider.selectedMenuOption = index;
       },
-      // currentIndex: navigationProvider.selectedMenuOption,
-      currentIndex: 0,
+      currentIndex: navigationProvider.selectedMenuOption,
       iconSize: 30,
       selectedItemColor: Colors.white,
       type: BottomNavigationBarType.fixed,
