@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/navigation_provider.dart';
 import 'screens/body_screen.dart';
-import 'screens/details_screen.dart';
 
 // https://via.placeholder.com/700x350
-// 1. Provider para la navegación con el bottomNavigationBar
-// 2. SliverAppBar con imagen random y sus iconos (iguala el comportamiento del del netflix)
+// - SliverAppBar con imagen random y sus iconos (iguala el comportamiento del del netflix)
+// - ENDPOINT PELICULAS: https://api.themoviedb.org/3/movie/now_playing?api_key=16d550d36c7c3c667bfc2f352f4fbda0&language=es-ES&page=1
 
 void main() => runApp(MyApp());
 
