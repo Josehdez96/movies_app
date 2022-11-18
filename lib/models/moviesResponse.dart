@@ -2,33 +2,34 @@ import 'package:movies_app/models/movie.dart';
 
 class MoviesResponse {
   MoviesResponse({
-    required this.dates,
+    this.dates,
     required this.page,
-    required this.movies,
+    required this.results,
     required this.totalPages,
-    required this.totalMovies,
+    required this.totalResults,
   });
 
-  Dates dates;
+  Dates? dates;
   int page;
-  List<Movie> movies;
+  List<Movie> results;
   int totalPages;
-  int totalMovies;
+  int totalResults;
 
   factory MoviesResponse.fromJson(Map<String, dynamic> json) => MoviesResponse(
         dates: Dates.fromJson(json["dates"]),
         page: json["page"],
-        movies: List<Movie>.from(json["movies"].map((x) => Movie.fromJson(x))),
+        results:
+            List<Movie>.from(json["results"].map((x) => Movie.fromJson(x))),
         totalPages: json["total_pages"],
-        totalMovies: json["total_movies"],
+        totalResults: json["total_results"],
       );
 
   Map<String, dynamic> toJson() => {
-        "dates": dates.toJson(),
+        "dates": dates?.toJson(),
         "page": page,
-        "movies": List<dynamic>.from(movies.map((x) => x.toJson())),
+        "results": List<dynamic>.from(results.map((x) => x.toJson())),
         "total_pages": totalPages,
-        "total_movies": totalMovies,
+        "total_results": totalResults,
       };
 }
 
