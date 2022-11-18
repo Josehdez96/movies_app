@@ -37,7 +37,8 @@ class Movie {
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         originalLanguage:
-            originalLanguageValues.map[json["original_language"]]!,
+            originalLanguageValues.map[json["original_language"]] ??
+                OriginalLanguage.en,
         originalTitle: json["original_title"],
         overview: json["overview"],
         popularity: json["popularity"].toDouble(),
@@ -68,13 +69,14 @@ class Movie {
       };
 }
 
-enum OriginalLanguage { en, es, mk, ja }
+enum OriginalLanguage { en, es, mk, ja, de }
 
-final originalLanguageValues = EnumValues<OriginalLanguage>({
+final originalLanguageValues = EnumValues({
   "en": OriginalLanguage.en,
   "es": OriginalLanguage.es,
   "ja": OriginalLanguage.ja,
-  "mk": OriginalLanguage.mk
+  "mk": OriginalLanguage.mk,
+  "de": OriginalLanguage.de,
 });
 
 class EnumValues<T> {
